@@ -13,3 +13,8 @@
 - copy:
     src: dot-xprofile
     dest: "{{ lookup('env', 'HOME') }}/.xprofile"
+
+- lineinfile:
+    path: "{{ lookup('env', 'HOME') }}/.bash_profile"
+    regexp: '^GTK_THEME='
+    line: 'GTK_THEME=Adwaita:dark'
