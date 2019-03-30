@@ -1,0 +1,15 @@
+- lineinfile:
+    path: /root/.bashrc
+    create: yes
+    regexp: '^#?PS1='
+    line: "PS1='{{ os_prefs_root_ps1 }}'"
+
+- lineinfile:
+    path: /root/.bash_profile
+    create: yes
+    line: "[[ -f ~/.bashrc ]] && . ~/.bashrc"
+
+- lineinfile:
+    path: /etc/skel/.bashrc
+    regexp: '^#?PS1='
+    line: "PS1='{{ os_prefs_default_user_ps1 }}'"

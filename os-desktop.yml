@@ -4,3 +4,5 @@
         name: os-base
     - import_role:
         name: os-xorg
+    - import_role:
+        name: os-prefs
