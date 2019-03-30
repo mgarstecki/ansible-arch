@@ -1,0 +1,10 @@
+user_session_prefs_redshift_temp_day: 5000K
+user_session_prefs_redshift_temp_night: 3500K
+
+# Default Paris
+user_session_prefs_redshift_lat: "48.8"
+user_session_prefs_redshift_lon: "2.35"
+
+user_session_prefs_lower_volume_keycode: XF86AudioLowerVolume
+user_session_prefs_increase_volume_keycode: XF86AudioRaiseVolume
+user_session_prefs_mute_volume_keycode: XF86AudioMute

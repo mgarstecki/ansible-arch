@@ -1,0 +1,8 @@
+{{ user_session_prefs_lower_volume_keycode }}
+	sh -c "pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ -2%"
+
+{{ user_session_prefs_increase_volume_keycode }}
+	sh -c "pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ +2%"
+
+{{ user_session_prefs_mute_volume_keycode }}
+	pactl set-sink-mute @DEFAULT_SINK@ toggle

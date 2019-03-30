@@ -1,0 +1,4 @@
+- hosts: desktop
+  tasks:
+    - import_role:
+        name: user-session-prefs

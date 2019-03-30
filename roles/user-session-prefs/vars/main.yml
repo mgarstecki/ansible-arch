@@ -1,0 +1,1 @@
+user_session_prefs_xdg_config_dir: "{{ lookup('env', 'HOME') }}/.config"

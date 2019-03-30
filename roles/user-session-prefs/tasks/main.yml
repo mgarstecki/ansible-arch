@@ -1,0 +1,15 @@
+- template:
+    src: redshift.conf
+    dest: "{{ user_session_prefs_xdg_config_dir }}/redshift.conf"
+
+- file:
+    path: "{{ user_session_prefs_xdg_config_dir }}/sxhkd"
+    state: directory
+
+- template:
+    src: sxhkdrc
+    dest: "{{ user_session_prefs_xdg_config_dir }}/sxhkd/sxhkdrc"
+
+- copy:
+    src: dot-xprofile
+    dest: "{{ lookup('env', 'HOME') }}/.xprofile"
