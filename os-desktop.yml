@@ -1,0 +1,6 @@
+- hosts: desktop
+  tasks:
+    - import_role:
+        name: os-base
+    - import_role:
+        name: os-xorg

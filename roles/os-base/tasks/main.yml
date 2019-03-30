@@ -1,0 +1,11 @@
+- pacman:
+    name: "{{ os_base_packages }}"
+    state: present
+
+- copy:
+    src: etc-sudoers.d-wheel
+    dest: /etc/sudoers.d/wheel
+    owner: root
+    group: root
+    mode: 0440
+    validate: /usr/bin/visudo -c -f %s

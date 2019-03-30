@@ -1,0 +1,8 @@
+os_base_packages:
+- vim
+- sudo
+- bash-completion
+- git
+- openssh
+- unzip
+- wget

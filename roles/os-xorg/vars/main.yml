@@ -1,0 +1,30 @@
+os_xorg_packages:
+- xorg
+- numlockx
+- awesome
+- firefox
+- google-chrome
+- gnome-terminal
+- ffmpegthumbnailer
+- gvfs-smb
+- lightdm
+- lightdm-gtk-greeter
+- light-locker
+- mesa-demos
+- mplayer
+- nautilus
+- noto-fonts
+- ttf-liberation
+- numlockx
+- pulseaudio
+- pulseaudio-alsa
+- pasystray
+- redshift
+- sxhkd
+- xf86-video-intel
+
+os_xorg_aur_packages:
+- mirage
+- python2-exiv2
+- emoji-keyboard
+- dropbox
