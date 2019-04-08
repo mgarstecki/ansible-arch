@@ -3,7 +3,6 @@ os_xorg_packages:
 - numlockx
 - awesome
 - firefox
-- google-chrome
 - gnome-terminal
 - ffmpegthumbnailer
 - gvfs-smb
@@ -19,7 +18,10 @@ os_xorg_packages:
 - pulseaudio
 - pulseaudio-alsa
 - pasystray
+
 - redshift
+- python-gobject
+
 - sxhkd
 - xf86-video-intel
 
