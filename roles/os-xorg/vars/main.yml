@@ -24,6 +24,7 @@ os_xorg_packages:
 
 - sxhkd
 - xf86-video-intel
+- compton
 
 - libu2f-host
 
