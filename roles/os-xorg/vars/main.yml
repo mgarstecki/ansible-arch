@@ -25,6 +25,8 @@ os_xorg_packages:
 - sxhkd
 - xf86-video-intel
 
+- libu2f-host
+
 os_xorg_aur_packages:
 - mirage
 - python2-exiv2
