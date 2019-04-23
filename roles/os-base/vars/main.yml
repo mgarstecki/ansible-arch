@@ -6,3 +6,4 @@ os_base_packages:
 - openssh
 - unzip
 - wget
+- dnsutils
