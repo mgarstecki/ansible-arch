@@ -1,35 +1,84 @@
 os_xorg_packages:
 - xorg
-- numlockx
 - awesome
 - firefox
 - gnome-terminal
 - ffmpegthumbnailer
 - gvfs-smb
-- lightdm
-- lightdm-gtk-greeter
-- light-locker
+# - lightdm
+# - lightdm-gtk-greeter
+# - light-locker
 - mesa-demos
 - mplayer
 - nautilus
 - noto-fonts
 - ttf-liberation
-- numlockx
-- pulseaudio
-- pulseaudio-alsa
+- i3lock
+- xautolock
+
+- alsa-utils
+- pipewire
+- pipewire-pulse
+# - pulseaudio
+# - pulseaudio-alsa
 - pasystray
+- pavucontrol
+
+- bluez-utils
 
 - redshift
+- numlockx
+- acpilight
+- sxhkd
+- arandr
+- autorandr
+- cbatticon
+- network-manager-applet
+- scrot
+- xclip
+- xfce4-screenshooter
+
 - python-gobject
 
-- sxhkd
-- xf86-video-intel
-- compton
+- xf86-video-vesa
+- picom
 
-- libu2f-host
+- android-file-transfer
+- exfat-utils
+- p7zip
+- yubikey-manager
+- python-numpy # for escrotum
+
+- inkscape
+- gimp
+- pinta
+- libreoffice-fresh
+- signal-desktop
+- vlc
+
+- code
+- hub
+- ipcalc
+
+- direnv
+- docker
+- docker-compose
+- kubectl
+- kubectx
+
+- go
+- go-tools
+
+- iperf
+- powertop
 
 os_xorg_aur_packages:
 - mirage
 - python2-exiv2
 - emoji-keyboard
-- dropbox
+- escrotum-git
+- libu2f-host
+- slack-desktop
+- spotify
+- google-chrome
+- helm

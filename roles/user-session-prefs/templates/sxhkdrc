@@ -6,3 +6,12 @@
 
 {{ user_session_prefs_mute_volume_keycode }}
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86MonBrightnessDown
+	xbacklight -dec 2
+
+XF86MonBrightnessUp
+	xbacklight -inc 2
+
+mod4 + twosuperior
+  autorandr --change

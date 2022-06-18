@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -o errexit -o pipefail -o nounset
+
+if [ $# -lt 2 ]; then
+  echo "usage: $0 secretname dataname" >&2
+  exit 1
+fi
+
+secret=$1
+data=$2
+
+kubectl get secret ${secret} -o json | jq -er ".data[\"${data}\"] | select( . != null )" | base64 -d || echo "error accessing secret" >&2

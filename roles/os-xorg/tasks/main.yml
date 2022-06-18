@@ -2,6 +2,12 @@
     name: "{{ os_xorg_packages }}"
     state: present
 
+- import_role:
+    name: jahrik.yay
+  vars:
+    install: true
+    aur_packages: "{{ os_xorg_aur_packages }}"
+
 - copy:
     src: etc-X11-xorg.conf.d-00-keyboard.conf
     dest: /etc/X11/xorg.conf.d/00-keyboard.conf
@@ -10,5 +16,5 @@
     mode: 0644
 
 - systemd:
-    name: lightdm
+    name: gdm
     enabled: yes

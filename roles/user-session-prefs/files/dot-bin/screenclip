@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+escrotum -sC && \
+  notify-send -u normal -a Screenshot "Screenshot saved to clipboard" || \
+  notify-send -u normal -a Screenchot "Screenshot failed/aborted"

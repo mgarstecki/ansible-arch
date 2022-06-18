@@ -1,0 +1,41 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+shopt -s histappend
+shopt -s cmdhist
+HISTFILESIZE=1000000
+HISTSIZE=1000000
+HISTCONTROL=ignoreboth
+HISTTIMEFORMAT='%F %T '
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
+alias ls='ls --color=auto'
+
+source $HOME/.lib/kube-ps1.sh
+
+GIT_PROMPT_FETCH_REMOTE_STATUS=0
+GIT_PROMPT_START='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \[\033[00m\]$(kube_ps1)'
+GIT_PROMPT_END='\n\[\033[01;34m\]\$\[\033[00m\] '
+
+if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source $HOME/.bash-git-prompt/gitprompt.sh
+fi
+
+export PS1="${GIT_PROMPT_START}${GIT_PROMPT_END}"
+
+eval "$(direnv hook bash)"
+
+alias kc=kubectl
+alias kg="kubectl get"
+alias kd="kubectl describe"
+
+kimage() {
+  kubectl get deploy $1 -o jsonpath --template '{.spec.template.spec.containers[0].image}{"\n"}'
+}
+
+source <(helm completion bash)

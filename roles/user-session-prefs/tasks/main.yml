@@ -1,3 +1,11 @@
+- stat:
+    path: "{{ user_session_prefs_xdg_config_dir }}/sxhkd"
+    register: sxhkc_stat
+
+- name: fail if already run on host
+  fail: msg="This host has already had this playbook run against it"
+  when: sxhkc_stat.stat.exists
+
 - template:
     src: redshift.conf
     dest: "{{ user_session_prefs_xdg_config_dir }}/redshift.conf"
@@ -13,6 +21,65 @@
 - copy:
     src: dot-xprofile
     dest: "{{ lookup('env', 'HOME') }}/.xprofile"
+
+- copy:
+    src: dot-profile
+    dest: "{{ lookup('env', 'HOME') }}/.profile"
+
+- copy:
+    src: dot-xsessionrc
+    dest: "{{ lookup('env', 'HOME') }}/.xsessionrc"
+
+- copy:
+    src: dot-bashrc
+    dest: "{{ lookup('env', 'HOME') }}/.bashrc"
+
+- file:
+    path: "{{ lookup('env', 'HOME') }}/.lib"
+    state: directory
+
+- get_url:
+    url: https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh
+    dest: "{{ lookup('env', 'HOME') }}/.lib/kube-ps1.sh"
+    mode: '0440'
+
+- file:
+    path: "{{ lookup('env', 'HOME') }}/.bin"
+    state: directory
+
+- copy:
+    src: "{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}/.bin"
+    mode: 0755
+  with_fileglob:
+    - "dot-bin/*"
+
+- file:
+    path: "{{ lookup('env', 'HOME') }}/.config"
+    mode: '0700'
+    state: directory
+
+- name: Create .config hierarchy of folders
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/{{ item.path }}"
+    state: directory
+    mode: '0700'
+  with_community.general.filetree: dot-config/
+  when: item.state == 'directory'
+
+- name: Create .config files
+  ansible.builtin.file:
+    src: '{{ item.src }}'
+    dest: "{{ lookup('env', 'HOME') }}/.config/{{ item.path }}"
+    mode: '0700'
+  with_community.general.filetree: dot-config/
+  when: item.state == 'file'
+
+- name: Git checkout
+  ansible.builtin.git:
+    repo: 'https://github.com/magicmonty/bash-git-prompt.git'
+    dest: "{{ lookup('env', 'HOME') }}/.bash-git-prompt/"
+    version: 148d502b666a0d62ecc83680817596b097a70f2a
 
 - lineinfile:
     path: "{{ lookup('env', 'HOME') }}/.bash_profile"

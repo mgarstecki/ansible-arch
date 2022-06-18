@@ -3,7 +3,19 @@ os_base_packages:
 - sudo
 - bash-completion
 - git
+- git-lfs
 - openssh
 - unzip
 - wget
 - dnsutils
+- gnu-netcat
+- fwupd
+- htop
+- intel-ucode
+- intel-undervolt
+- lshw
+- pacman-contrib
+- smartmontools
+- zip
+
+os_aur_packages: []

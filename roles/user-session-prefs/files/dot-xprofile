@@ -1,5 +1,13 @@
+if [ -x /usr/bin/numlockx ]; then
+      /usr/bin/numlockx on
+fi
+
+picom &
 redshift-gtk &
-light-locker &
+xautolock -time 5 -locker 'i3lock -f -c 555555' &
 pasystray &
 sxhkd &
-compton &
+nm-applet &
+cbatticon &
+# joplin &
+# slack &

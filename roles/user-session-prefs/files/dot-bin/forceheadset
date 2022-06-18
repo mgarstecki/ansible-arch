@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -o errexit -o pipefail
+
+card=`pactl list | grep "Name: bluez_card." | cut -d ' ' -f 2`
+
+echo "Switching $card to msbc..."
+pactl set-card-profile $card headset-head-unit-msbc
+echo "...done"
+
+sleep 3
+
+echo "Finding sink and source..."
+sink=`pactl list short sinks | grep "bluez_output" | cut -f 2`
+source=`pactl list short sources | grep "bluez_input" | cut -f 2`
+echo "...done"
+
+echo "Switching to sing $sink..."
+pactl set-default-sink $sink
+echo "...done"
+
+echo "Switching to source $source..."
+pactl set-default-source $source
+echo "...done"

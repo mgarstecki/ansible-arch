@@ -2,6 +2,11 @@
     name: "{{ os_base_packages }}"
     state: present
 
+- import_role:
+    name: jahrik.yay
+  vars:
+    install: true
+    aur_packages: "{{ os_aur_packages }}"
 - copy:
     src: etc-sudoers.d-wheel
     dest: /etc/sudoers.d/wheel
